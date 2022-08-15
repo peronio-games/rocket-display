@@ -14,6 +14,7 @@ export const ShipsContainer = ({ start }: IShipsContainerProps) => {
 
   useEffect(() => {
     if (start) {
+      startAnimation();
     }
   }, [start]);
 
@@ -21,8 +22,8 @@ export const ShipsContainer = ({ start }: IShipsContainerProps) => {
     <>
       <button>Start</button>
       <div className={styles.shipContainer}>
-        <Player />
-        <Player />
+        <Player start={start} />
+        <Player start={start} />
       </div>
     </>
   );

@@ -4,15 +4,29 @@
   width: 100%;
   display: flex;
   flex-flow: row;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .ship {
   max-width: 30vh;
+  transition: transform 1s;
+}
+
+.ship img {
+  position: relative;
+  z-index: 2;
 }
 
 .shaking {
+  position: relative;
+  z-index: 2;
   animation: shakeAnimation 0.3s linear infinite;
+}
+
+.launch {
+  animation: launchAnimation 4s ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes shakeAnimation {
@@ -32,5 +46,54 @@
   60%,
   80% {
     transform: translateX(3px) rotate(0deg);
+  }
+}
+
+@keyframes launchAnimation {
+  0%,
+  2%,
+  4%,
+  6%,
+  8%,
+  10%,
+  12%,
+  14%,
+  16% {
+    transform: translateX(-1px);
+  }
+  1%,
+  3%,
+  5%,
+  7%,
+  9%,
+  11%,
+  13%,
+  15%,
+  17% {
+    transform: translateX(1px);
+  }
+  18% {
+    transform: translateX(0px);
+  }
+  20% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+.mainSpeed {
+  animation: mainSpeedAnimation 26s ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes mainSpeedAnimation {
+  0% {
+    transform: translateY(0px);
+  }
+  90% {
+    transform: translateY(-500px);
   }
 }
