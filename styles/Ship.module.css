@@ -1,0 +1,36 @@
+.shipContainer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.ship {
+  max-width: 30vh;
+}
+
+.shaking {
+  animation: shakeAnimation 0.3s linear infinite;
+}
+
+@keyframes shakeAnimation {
+  0%,
+  100% {
+    transform: translateY(-2px) rotate(1deg);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateY(2px) translateX(-1px) rotate(-1deg);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(3px) rotate(0deg);
+  }
+}
