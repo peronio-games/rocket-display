@@ -23,7 +23,6 @@ export const ShipsContainer = ({ start }: IShipsContainerProps) => {
       <button>Start</button>
       <div className={styles.shipContainer}>
         <Player start={start} />
-        <Player start={start} />
       </div>
     </>
   );
