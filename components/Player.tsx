@@ -10,6 +10,7 @@ export const Player = ({ start }: IPlayerProps) => {
   const [fire, setFire] = useState(false);
   const [launched, setLaunched] = useState(false);
   const [mainSpeed, setMainSpeed] = useState(false);
+  const [space, setSpace] = useState(false);
 
   const initLaunch = () => {
     console.info("Init Launch!!");
@@ -22,6 +23,7 @@ export const Player = ({ start }: IPlayerProps) => {
 
     setTimeout(() => {
       setShaking(false);
+      setSpace(true);
     }, 15500);
   };
 
@@ -38,6 +40,7 @@ export const Player = ({ start }: IPlayerProps) => {
       launched={launched}
       mainSpeed={mainSpeed}
       fire={fire}
+      space={space}
     />
   );
 };
