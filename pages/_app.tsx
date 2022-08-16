@@ -5,9 +5,11 @@ import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
+import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
+    chain.hardhat,
     chain.polygon,
     ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true"
       ? [chain.goerli, chain.polygonMumbai, chain.ropsten]
@@ -20,6 +22,11 @@ const { chains, provider, webSocketProvider } = configureChains(
       apiKey: "_gg7wSSi0KMBsdKnGVfHDueq6xMB9EkC",
     }),
     publicProvider(),
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `http://localhost:8545`,
+      }),
+    }),
   ]
 );
 
