@@ -14,6 +14,9 @@ enum Screen {
   LEADERBOARD,
 }
 
+const ROCKETGAME_CONTRACT = process.env.NEXT_PUBLIC_ROCKETGAME_CONTRACT;
+console.dir(process.env);
+
 const Home: NextPage = () => {
   const [screen, setScreen] = useState<Screen>(Screen.MAIN);
 
@@ -37,7 +40,14 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        {screen == Screen.MAIN ? <MainScreen start={startLaunch} /> : ""}
+        {screen == Screen.MAIN ? (
+          <MainScreen
+            start={startLaunch}
+            contractAddress={ROCKETGAME_CONTRACT}
+          />
+        ) : (
+          ""
+        )}
         {screen == Screen.LAUNCH ? <LaunchScreen /> : ""}
       </main>
     </div>
