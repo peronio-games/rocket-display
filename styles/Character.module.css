@@ -1,0 +1,31 @@
+.players {
+  position: absolute;
+  z-index: 1;
+  width: 50vw;
+  height: 50vh;
+  left: 25%;
+  bottom: 6vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.character {
+  color: black;
+  width: 35vh;
+  height: 35vh;
+  border: 2px solid #eee;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.name {
+  margin-top: 2vh;
+  font-size: 3vh;
+}

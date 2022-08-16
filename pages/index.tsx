@@ -1,11 +1,26 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import type { NextPage } from "next";
 import Head from "next/head";
-import { Launch } from "../components/Launch";
-import { SkyBackground } from "../components/SkyBackground";
+import type { NextPage } from "next";
+
+import { useState } from "react";
+
 import styles from "../styles/Home.module.css";
+import { LaunchScreen } from "../components/screens/LaunchScreen";
+import { MainScreen } from "../components/screens/MainScreen";
+
+enum Screen {
+  LAUNCH,
+  MAIN,
+  MOON,
+  LEADERBOARD,
+}
 
 const Home: NextPage = () => {
+  const [screen, setScreen] = useState<Screen>(Screen.MAIN);
+
+  const startLaunch = () => {
+    setScreen(Screen.LAUNCH);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -22,12 +37,9 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Launch />
+        {screen == Screen.MAIN ? <MainScreen start={startLaunch} /> : ""}
+        {screen == Screen.LAUNCH ? <LaunchScreen /> : ""}
       </main>
-
-      <footer className={styles.footer}>
-        Hecho con ❤️ por <b>Peronio.AR</b>
-      </footer>
     </div>
   );
 };

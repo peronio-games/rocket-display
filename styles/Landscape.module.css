@@ -122,16 +122,20 @@
   height: 30vh;
   position: absolute;
   bottom: 0;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 @keyframes seaAnimation {
   0% {
     bottom: 0;
   }
+  70% {
+    opacity: 0.4;
+    bottom: -20vh;
+  }
   100% {
+    opacity: 0;
     bottom: -30vh;
-    background-position: 0% 0%;
   }
 }
 
@@ -139,5 +143,5 @@
   animation: seaAnimation 6s ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  animation-delay: 5.5s;
+  animation-delay: 4s;
 }
