@@ -20,9 +20,11 @@ export const MainScreen = ({ start, contractAddress }: IMainScreen) => {
   const { data, isError, isLoading, error } = useContractRead({
     addressOrName: contractAddress,
     contractInterface: contractABI,
-    functionName: "lastRound",
+    functionName: "getLastRound",
     watch: true,
   });
+
+  console.dir(data);
 
   const [hydrated, setHydrated] = useState(false);
   useEffect(() => {
@@ -34,7 +36,8 @@ export const MainScreen = ({ start, contractAddress }: IMainScreen) => {
     return null;
   }
 
-  const num = data?.toNumber() ?? 0;
+  // const num = data?.toNumber() ?? 0;
+  const num = 5;
 
   return (
     <Container>

@@ -32,6 +32,24 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "getLastRound",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "startBlock",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address[]",
+        "name": "players_",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
